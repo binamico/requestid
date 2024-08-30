@@ -4,13 +4,13 @@ import "context"
 
 type requestIDKey struct{}
 
-// InjectRequestID добавляет request id в контекст
-func InjectRequestID(ctx context.Context, requestID string) context.Context {
+// InjectRequestIDToCtx injects the request ID in the context.
+func InjectRequestIDToCtx(ctx context.Context, requestID string) context.Context {
 	return context.WithValue(ctx, requestIDKey{}, requestID)
 }
 
-// EjectRequestID достает request id из запроса.
-func EjectRequestID(ctx context.Context) (string, bool) {
+// EjectRequestIDFromCtx ejects the request id from the context.
+func EjectRequestIDFromCtx(ctx context.Context) (string, bool) {
 	requestID, ok := ctx.Value(requestIDKey{}).(string)
 	return requestID, ok
 }
