@@ -1,4 +1,4 @@
-module github.com/binamico/requestid
+module github.com/binamico/requestid/v2
 
 go 1.22
 
